@@ -8,63 +8,66 @@
 
 ## 🇧🇷 Português
 
-### DTCSync Server — APIs centrais
+### DTCSync Server — hub de APIs da operação
 
 **Role / Papel / Rol:** Backend e camada de APIs da operação  
-**Stack:** `Python, HTML/JS, REST APIs, PostgreSQL`
+**Stack:** `Python, FastAPI/Flask, REST, PostgreSQL, VPN, bandeja Windows`
 
 #### Problem / Problema
-Vários módulos (sync, dashboard, portal) precisavam de um ponto central de APIs para autenticação, dados e regras de negócio — sem espalhar lógica em cada cliente.
+Agente, Client desktop, Android e painéis precisam de um ponto único para módulos, credenciais, execuções fiscais (NF-e/NFC-e), cadastro de aparelhos e regras — sem duplicar lógica em cada ponta.
 
 #### Solution / Solução / Solución
-Implementei o servidor que concentra as APIs usadas pelos agentes e painéis, com endpoints versionáveis e integração com o ecossistema DTCSync.
+Servidor central que expõe APIs consumidas pelo agente e pelos clientes (desktop/Android), com flags de execução fiscal, integração VPN/reserva, empacotamento Windows (tray) e endpoints usados por Dashboard, PontoBR e Portal.
 
 #### Highlights
-- Hub de APIs para múltiplos clientes
-- Integração com agente e dashboards
-- Stack web + Python
+- Hub de APIs para múltiplos clientes e canais (agente / Client / Android)
+- Flag de execuções NF-e / NFC-e consultável na ponta
+- Integração VPN e operação contínua (launcher em bandeja)
+- Stack web + Python empacotável
 
 
 ---
 
 ## 🇬🇧 English
 
-### DTCSync Server — central APIs
+### DTCSync Server — central API hub
 
 **Role / Papel / Rol:** Backend and operational API layer  
-**Stack:** `Python, HTML/JS, REST APIs, PostgreSQL`
+**Stack:** `Python, FastAPI/Flask, REST, PostgreSQL, VPN, Windows tray`
 
 #### Problem / Problema
-Multiple modules needed a central API layer for auth, data, and business rules instead of duplicating logic in every client.
+Agent, desktop Client, Android and panels need one place for modules, credentials, fiscal execution flags (NF-e/NFC-e), device enrollment and rules — without duplicating logic on every edge.
 
 #### Solution / Solução / Solución
-I implemented the server that hosts APIs consumed by agents and dashboards, with versionable endpoints integrated into the DTCSync ecosystem.
+A central server exposing APIs for the agent and clients (desktop/Android), with fiscal execution flags, VPN/fallback integration, Windows tray packaging and endpoints used by Dashboard, PontoBR and Portal.
 
 #### Highlights
-- API hub for multiple clients
-- Integration with agent and dashboards
-- Web + Python stack
+- API hub for multiple clients and channels (agent / Client / Android)
+- NF-e / NFC-e execution flags readable at the edge
+- VPN integration and always-on tray launcher
+- Packaged web + Python stack
 
 
 ---
 
 ## 🇪🇸 Español
 
-### DTCSync Server — APIs centrales
+### DTCSync Server — hub de APIs operativas
 
 **Role / Papel / Rol:** Backend y capa de APIs operativas  
-**Stack:** `Python, HTML/JS, REST APIs, PostgreSQL`
+**Stack:** `Python, FastAPI/Flask, REST, PostgreSQL, VPN, bandeja Windows`
 
 #### Problem / Problema
-Varios módulos necesitaban un punto central de APIs para autenticación, datos y reglas de negocio.
+Agente, Client, Android y paneles necesitan un punto único para módulos, credenciales, ejecuciones fiscales y reglas.
 
 #### Solution / Solução / Solución
-Implementé el servidor que concentra las APIs usadas por agentes y paneles, con endpoints versionables e integración con DTCSync.
+Servidor central con APIs para agente y clientes, flags de ejecución NF-e/NFC-e, VPN, empaquetado en bandeja Windows y endpoints de Dashboard/PontoBR/Portal.
 
 #### Highlights
-- Hub de APIs para varios clientes
-- Integración con agente y dashboards
-- Stack web + Python
+- Hub de APIs multi-cliente y multi-canal
+- Flags de ejecución fiscal en la punta
+- VPN y launcher en bandeja
+- Stack web + Python empaquetable
 
 
 ---
@@ -73,4 +76,5 @@ Implementé el servidor que concentra las APIs usadas por agentes y paneles, con
 
 - Author: **Douglas Francisco Bonfim**
 - Related private implementation (not public): `dtcsync-server`
+- Companion cases: `dtcsync`, `dtcsyncclient`, `dtcsyncandroid`
 - No credentials, customer data, hostnames, or proprietary payloads are included in this document.
